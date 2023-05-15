@@ -240,15 +240,14 @@ class DIL_ATSS(ATSS):
         losses.update(dict(loss_stu_cls= sup_stu_cls))
 
         # todo tea
-        # sup_tea_cls = self.dis_cls(tea_mask, pos_cls_tea, pos_cls_stu)
-        # losses.update(dict(loss_tea_cls= sup_tea_cls))
-        # print(sup_stu_cls)
+#         sup_tea_cls = self.dis_cls(tea_mask, pos_cls_tea, pos_cls_stu)
+#         losses.update(dict(loss_tea_cls= sup_tea_cls))
 
         # # todo 定位学习******
         # todo stu
-        # sup_stu_reg = self.dis_reg(stu_mask, pos_reg_stu, pos_reg_tea)
-        # sup_stu_reg = self.dis_reg(LC, pos_reg_stu, pos_reg_tea)
-        # losses.update(dict(loss_stu_reg=sup_stu_reg))
+        sup_stu_reg = self.dis_reg(stu_mask, pos_reg_stu, pos_reg_tea)
+        sup_stu_reg = self.dis_reg(LC, pos_reg_stu, pos_reg_tea)
+        losses.update(dict(loss_stu_reg=sup_stu_reg))
 
         # todo tea
         # sup_tea_reg = self.dis_reg(tea_mask, pos_reg_stu, pos_reg_tea)
