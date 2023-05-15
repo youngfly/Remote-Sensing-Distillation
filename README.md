@@ -6,4 +6,4 @@ https://github.com/open-mmlab/mmdetection
 
 We release the configs (a_configs) and some designed modules (mmdet)
 
-We foucus more on the detection distilaltion in remote sensing  field.
+We foucus more on the detection distillation in remote sensing  field.
