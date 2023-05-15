@@ -1,0 +1,33 @@
+/opt/conda/lib/python3.6/site-packages/mmcv/
+
+将这个下面的文件 替换上面文件夹的可视化函数，即可以实现为每一个类别绘制单独颜色的框，甚至可以去掉预测的置信度以及类别的名字
+
+
+nwpu类的位置
+    {"supercategory": "airplane", "id": 1, "name": "airplane"},
+    {"supercategory": "ship", "id": 2, "name": "ship"},
+    {"supercategory": "storage tank", "id": 3, "name": "storage tank"},lib
+
+    {"supercategory": "baseball diamond", "id": 4, "name": "baseball diamond"},
+    {"supercategory": "tennis court", "id": 5, "name": "tennis court"},
+    {"supercategory": "basketball court", "id": 6, "name": "basketball court"},
+    {"supercategory": "ground track field", "id": 7, "name": "ground track field"},
+    {"supercategory": "harbor", "id": 8, "name": "harbor"},
+    {"supercategory": "bridge", "id": 9, "name": "bridge"},
+    {"supercategory": "vehicle", "id": 10, "name": "vehicle"}]
+
+    "categories": [{"id": 1, "name": "plane", "supercategory": "plane"},
+     {"id": 2, "name": "baseball-diamond", "supercategory": "baseball-diamond"},
+     {"id": 3, "name": "bridge", "supercategory": "bridge"},
+     {"id": 4, "name": "ground-track-field", "supercategory": "ground-track-field"},
+     {"id": 5, "name": "small-vehicle", "supercategory": "small-vehicle"},
+     {"id": 6, "name": "large-vehicle", "supercategory": "large-vehicle"},
+     {"id": 7, "name": "ship", "supercategory": "ship"},
+     {"id": 8, "name": "tennis-court", "supercategory": "tennis-court"},
+     {"id": 9, "name": "basketball-court", "supercategory": "basketball-court"},
+     {"id": 10, "name": "storage-tank", "supercategory": "storage-tank"},
+     {"id": 11, "name": "soccer-ball-field", "supercategory": "soccer-ball-field"},
+     {"id": 12, "name": "roundabout", "supercategory": "roundabout"},
+     {"id": 13, "name": "harbor", "supercategory": "harbor"},
+     {"id": 14, "name": "swimming-pool", "supercategory": "swimming-pool"},
+     {"id": 15, "name": "helicopter", "supercategory": "helicopter"}]

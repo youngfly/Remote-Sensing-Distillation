@@ -1,0 +1,87 @@
+dataset_type = 'DotaDataset'
+data_root = '/home/airstudio/data/dota1_1024/'
+img_norm_cfg = dict(
+    mean=[123.675, 116.28, 103.53], std=[58.395, 57.12, 57.375], to_rgb=True)
+train_pipeline = [
+    dict(type='LoadImageFromFile'),
+    dict(type='LoadAnnotations', with_bbox=True),
+    dict(type='Resize', img_scale=(1024, 1024), keep_ratio=True),
+    dict(type='RandomFlip', flip_ratio=0.5),
+    dict(type='Normalize', **img_norm_cfg),
+    dict(type='Pad', size_divisor=32),
+    dict(type='DefaultFormatBundle'),
+    dict(type='Collect', keys=['img', 'gt_bboxes', 'gt_labels']),
+]
+test_pipeline = [
+    dict(type='LoadImageFromFile'),
+    dict(
+        type='MultiScaleFlipAug',
+        img_scale=(1024, 1024),
+        flip=False,
+        transforms=[
+            dict(type='Resize', keep_ratio=True),
+            dict(type='RandomFlip'),
+            dict(type='Normalize', **img_norm_cfg),
+            dict(type='Pad', size_divisor=32),
+            dict(type='ImageToTensor', keys=['img']),
+            dict(type='Collect', keys=['img']),
+        ])
+]
+data = dict(
+    samples_per_gpu=8,
+    workers_per_gpu=2,
+    train=dict(
+        type=dataset_type,
+        ann_file=data_root + 'trainval1024/DOTA_trainval1024.json',
+        img_prefix=data_root + 'trainval1024/images/',
+        pipeline=train_pipeline),
+    val=dict(
+        type=dataset_type,
+        ann_file=data_root + 'test1024/DOTA_test1024.json',
+        img_prefix=data_root + 'test1024/images/',
+        pipeline=test_pipeline),
+    test=dict(
+        type=dataset_type,
+        ann_file=data_root + 'test1024/DOTA_test1024.json',
+        img_prefix=data_root + 'test1024/images/',
+        pipeline=test_pipeline))
+evaluation = dict(interval=1, metric='bbox')
+
+# optimizer
+optimizer = dict(type='SGD', lr=0.005, momentum=0.9, weight_decay=0.0001)
+optimizer_config = dict(grad_clip=None)
+# optimizer_config = dict(grad_clip=dict(max_norm=35, norm_type=2))
+# learning policy
+lr_config = dict(
+    policy='step',
+    warmup='linear',
+    warmup_iters=500,
+    warmup_ratio=0.001,
+    step=[20, 28])
+total_epochs = 30
+
+checkpoint_config = dict(interval=1)
+# yapf:disable
+log_config = dict(
+    interval=50,
+    hooks=[
+        dict(type='TextLoggerHook'),
+        # dict(type='TensorboardLoggerHook')
+    ])
+# yapf:enable
+dist_params = dict(backend='nccl')
+log_level = 'INFO'
+load_from = None
+resume_from = None
+workflow = [('train', 1)]
+
+# resume_from = '/home/airstudio/code/yyr/work_dirs_dota/dis_reg_s_0.1c_giou_cls_m6_bk_m4/latest.pth'
+# todo fpn
+# work_dir = './work_dirs/dis_atss101_18_f0.5_dota_area_mask3_0.005'
+# todo fpn + cls
+# work_dir = './work_dirs/dis_atss101_18_f0.5_dota_area_cls_bk_mask4'
+# todo fpn + reg
+# work_dir = './work_dirs/dis_atss101_18_f0.5_dota_area_reg_bk_mask4'
+# todo fpn + reg +cls
+# work_dir = './work_dirs_reg/dis_atss101_18_f0.5_dota_area_reg_s_0.1_cls_bk_mask4'
+work_dir = './work_dirs_dota/dis_reg_s_0.1c_giou_cls_m4_0_bk_m4_0_trainval'
