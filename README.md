@@ -1,4 +1,4 @@
-# Main
+## Main
 The official code for ARSD-S3MKM-DIL
 
 You should install as the instruction of mmdetection official setting
@@ -9,17 +9,17 @@ We release the configs (a_configs) and some designed modules (mmdet)
 We foucus more on the detection distillation in remote sensing  field.
 
 ## Paper
-1) Adaptive Knowledge Distillation for Lightweight Remote Sensing Object Detectors Optimizing
+1 Adaptive Knowledge Distillation for Lightweight Remote Sensing Object Detectors Optimizing
 
-https://ieeexplore.ieee.org/document/9775159/
+Link : https://ieeexplore.ieee.org/document/9775159/
 
-2) Statistical Sample Selection and Multivariate Knowledge Mining for Lightweight Detectors in Remote Sensing Imagery
+2 Statistical Sample Selection and Multivariate Knowledge Mining for Lightweight Detectors in Remote Sensing Imagery
 
-https://ieeexplore.ieee.org/document/9832637/
+Link : https://ieeexplore.ieee.org/document/9832637/
 
-3) Dynamic Interactive Learning for Lightweight Detectors in Remote Sensing Imagery
+3 Dynamic Interactive Learning for Lightweight Detectors in Remote Sensing Imagery
 
-https://ieeexplore.ieee.org/document/9921272/
+Link : https://ieeexplore.ieee.org/document/9921272/
 
 ## Citation
 
