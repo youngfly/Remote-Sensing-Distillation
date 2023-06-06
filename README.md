@@ -26,8 +26,9 @@ python3 tools/train.py a_config/ARSD/dota/distill/distill_atss_101_18_f0.5_dior.
 ```
 
 ## Test
+```bash
 python3 tools/test.py a_config/ARSD/dota/distill/distill_atss_101_18_f0.5_dior.py [model.pth] --eval bbox
-
+```
 
 ## Paper
 1 Adaptive Knowledge Distillation for Lightweight Remote Sensing Object Detectors Optimizing
