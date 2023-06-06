@@ -5,6 +5,7 @@ We release the configs (a_configs) and some designed modules (mmdet)
 ## Install
 You should install as the instruction of mmdetection official setting
 https://github.com/open-mmlab/mmdetection
+
 You also need to install below library (if you use the DOTA dataset)
 https://github.com/CAPTAIN-WHU/DOTA_devkit
 
