@@ -1,12 +1,26 @@
 ## Main
-The official code for ARSD-S3MKM-DIL
+The official code for ARSD-S3MKM-DIL. We foucus more on the detection distillation in remote sensing  field.
+We release the configs (a_configs) and some designed modules (mmdet)
 
+## Install
 You should install as the instruction of mmdetection official setting
 https://github.com/open-mmlab/mmdetection
 
-We release the configs (a_configs) and some designed modules (mmdet)
+## Train 
+### Teacher model
+```bash
+python3 tools/train.py a_config/ARSD/teacher/atss101_dota.py
+```
 
-We foucus more on the detection distillation in remote sensing  field.
+### Student model
+```bash
+python3 tools/train.py a_config/ARSD/student/atss18_dota_area.py
+```
+
+### Distillation model
+```bash
+python3 tools/train.py a_config/ARSD/dota/distill/distill_atss_101_18_f0.5_dota_area.py
+```
 
 ## Paper
 1 Adaptive Knowledge Distillation for Lightweight Remote Sensing Object Detectors Optimizing
@@ -22,7 +36,6 @@ Link : https://ieeexplore.ieee.org/document/9832637/
 Link : https://ieeexplore.ieee.org/document/9921272/
 
 ## Citation
-
 If Our work is useful or relevant to your research, please kindly recognize our contributions by citing our paper:
 
 ```bibtex
