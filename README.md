@@ -14,7 +14,7 @@ python3 tools/train.py a_config/ARSD/teacher/atss101_dota.py
 
 ### Student model
 ```bash
-python3 tools/train.py a_config/ARSD/student/atss18_dota_area.py
+python3 tools/train.py a_config/ARSD/student/atss18_fpn_dota_dota_area.py
 ```
 
 ### Distillation model
