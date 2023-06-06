@@ -5,22 +5,28 @@ We release the configs (a_configs) and some designed modules (mmdet)
 ## Install
 You should install as the instruction of mmdetection official setting
 https://github.com/open-mmlab/mmdetection
+You also need to install below library (if you use the DOTA dataset)
+https://github.com/CAPTAIN-WHU/DOTA_devkit
 
 ## Train 
 ### Teacher model
 ```bash
-python3 tools/train.py a_config/ARSD/teacher/atss101_dota.py
+python3 tools/train.py a_config/ARSD/Tea_Stu/atss101_dior.py
 ```
 
 ### Student model
 ```bash
-python3 tools/train.py a_config/ARSD/student/atss18_fpn_dota_dota_area.py
+python3 tools/train.py a_config/ARSD/Tea_Stu/atss18_fpn0.5_dior.py
 ```
 
 ### Distillation model
 ```bash
-python3 tools/train.py a_config/ARSD/dota/distill/distill_atss_101_18_f0.5_dota_area.py
+python3 tools/train.py a_config/ARSD/dota/distill/distill_atss_101_18_f0.5_dior.py
 ```
+
+## Test
+python3 tools/test.py a_config/ARSD/dota/distill/distill_atss_101_18_f0.5_dior.py [model.pth] --eval bbox
+
 
 ## Paper
 1 Adaptive Knowledge Distillation for Lightweight Remote Sensing Object Detectors Optimizing
