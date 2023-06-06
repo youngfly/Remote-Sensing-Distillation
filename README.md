@@ -1,4 +1,4 @@
-#ARSD-S3MKMDIL
+# ARSD-S3MKMDIL
 The official code for ARSD-S3MKM-DIL. We foucus more on the detection distillation in remote sensing  field.
 We release the configs (a_configs) and some designed modules (mmdet)
 
