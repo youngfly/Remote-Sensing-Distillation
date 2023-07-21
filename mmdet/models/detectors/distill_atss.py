@@ -51,21 +51,17 @@ class Distill_Atss(ATSS):
         self.out_channels = 256
         self.adapt_conv = nn.Conv2d(self.in_channels_adapt, self.out_channels, 1, padding=0)
 
-        # todo 是否采用适应层蒸馏backbone
         self.if_adapt = True
-        # todo 对于每一个图片采用单独的mask,上一条是所有的图片相同尺寸使用相同一个mask,简单来说就是错的。
         self.if_adapt2 = False
-        # todo 分类头的混合蒸馏
         self.if_cls = True
-        # todo 分类头的正确蒸馏
         self.if_cls2 = False
 
         # todo 是否蒸馏backbone
-        self.dis_backbone = False
+        self.dis_backbone = True
         # todo 是否蒸馏最终的分类头
         self.dis_cls = True
         # todo 是否蒸馏最终的回归头
-        self.dis_reg = False
+        self.dis_reg = True
 
         # todo 对于蒸馏回归的输出，监督方式
         # todo 采用adapt原始论文的监督方式,iou(t,gt)>iou(a,gt)     mask0
