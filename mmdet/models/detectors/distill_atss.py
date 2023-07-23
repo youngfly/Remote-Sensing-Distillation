@@ -35,12 +35,12 @@ class Distill_Atss(ATSS):
         self.load_weights(pretrained=tea_pretrained)
         self.freeze_models()
 
-        # todo 原来的cls_weight为0.01
+        
         self.imitation_loss_weight = 0.01
         self.dis_cls_weight = 0.01
         self.dis_reg_weight = 0.1
 
-        # todo 采用giou作为回归的损失函数
+        
         loss_dis_reg_cfg = dict(type='NIoULoss', loss_weight=2.0)
         self.loss_distill_reg = build_loss(loss_dis_reg_cfg)
 
