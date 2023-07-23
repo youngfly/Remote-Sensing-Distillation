@@ -95,12 +95,6 @@ class Distill_Atss(ATSS):
         stu_x = self.extract_feat(img)
         stu_outs = self.bbox_head(stu_x)
 
-        # todo stu_x=[5,[n,c,h,w]]
-        # todo stu_out=[3,[5,[n,c,h,w]]]
-        # todo stu_out[0]分类， stu_outs[1]回归, stu_outs[2]centness
-        # todo tupe (3, 5, n, c, h ,w), 3代表三个输出的分支头， 5代表5个尺度，n代表batch_size,
-        # todo 分类头的c=15, 代表类别， 检测头c=4, 代表4个偏移量， 点头c=1代表， 代表一个中心点
-        # todo [h,w] 128, 64, 32 ,16, 8
 
         # todo 添加适应层，因为采用的学生网络的fpn层通道数发生了改变，因此采用适应层为学生网络的通道数进行调整。
         if self.if_adapt:
