@@ -35,7 +35,7 @@ python3 tools/test.py a_config/ARSD/dota/distill/distill_atss_101_18_f0.5_dior.p
 
 Link : https://ieeexplore.ieee.org/document/9775159/
 
-![图片](./fig_paper/arsd-tgrs.png)
+![图片](./fig_paper/arsd-tgrs.jpg)
 
 
 2 Statistical Sample Selection and Multivariate Knowledge Mining for Lightweight Detectors in Remote Sensing Imagery
