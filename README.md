@@ -42,9 +42,13 @@ Link : https://ieeexplore.ieee.org/document/9775159/
 
 Link : https://ieeexplore.ieee.org/document/9832637/
 
+![图片](./fig_paper/s2mkm-tgrs.jpg)
+
 3 Dynamic Interactive Learning for Lightweight Detectors in Remote Sensing Imagery
 
 Link : https://ieeexplore.ieee.org/document/9921272/
+
+![图片](./fig_paper/dil.jpg)
 
 ## Citation
 If Our work is useful or relevant to your research, please kindly recognize our contributions by citing our paper:
