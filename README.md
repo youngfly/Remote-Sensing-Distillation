@@ -48,7 +48,7 @@ Link : https://ieeexplore.ieee.org/document/9832637/
 
 Link : https://ieeexplore.ieee.org/document/9921272/
 
-![图片](./fig_paper/dil.jpg)
+![图片](./fig_paper/dil-tgrs.jpg)
 
 ## Citation
 If Our work is useful or relevant to your research, please kindly recognize our contributions by citing our paper:
