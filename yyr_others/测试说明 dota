@@ -1,0 +1,406 @@
+
+python3 tools/parse_result_test.py
+
+教师测试
+1 测试教师-50 0.642
+CUDA_VISIBLE_DEVICES=0 python3 tools/test.py a_configs/dota_model_area/student/atss50_dota_area.py work_dirs_S/atss50_dota/epoch_25.pth --eval bbox --out result.pkl
+
+2 测试教师-50 0.635
+CUDA_VISIBLE_DEVICES=0 python3 tools/test.py a_configs/dota_model_area/student/atss50_dota_area.py work_dirs_S/atss50_dota/epoch_21.pth --eval bbox --out result.pkl
+
+学生测试
+1 测试学生18-0.5
+CUDA_VISIBLE_DEVICES=3 python3 tools/test.py a_configs/dota_model_area/student/atss18_fpn0.5_dota_area.py work_dirs_S/atss18_fpn0.5_dota_area/epoch_29.pth --eval bbox --out result.pkl
+
+2 测试学生18
+CUDA_VISIBLE_DEVICES=3 python3 tools/test.py a_configs/dota_model_area/student/atss18_dota_area.py work_dirs_S/atss18_dota_area/epoch_22.pth --eval bbox --out result.pkl
+
+3 测试学生18-0.25
+CUDA_VISIBLE_DEVICES=3 python3 tools/test.py a_configs/dota_model_area/student/atss18_dota_area.py work_dirs_S/atss18_dota_area/epoch_22.pth --eval bbox --out result.pkl
+
+4 测试学生bk-0.5
+python3 tools/test.py a_configs/dota_model_area/student/atss18bk0.5_dota_area.py /workspace/a_yyr_code/yyr/work_dirs/atss18bk0.5_dota_area/epoch_30.pth --eval bbox --out result.pkl
+
+
+
+python3 tools/parse_result_test.py
+
+bk
+1 mask1_591
+CUDA_VISIBLE_DEVICES=3 python3 tools/test.py a_configs/dota_model_area/distill/distill_atss_101_18_f0.5_dota_area.py work_dirs/dis_atss101_18_f0.5_dota_area_mask1/epoch_25.pth --eval bbox --out result.pkl
+
+2 mask2_598
+CUDA_VISIBLE_DEVICES=3 python3 tools/test.py a_configs/dota_model_area/distill/distill_atss_101_18_f0.5_dota_area.py work_dirs/dis_atss101_18_f0.5_dota_area_mask2/epoch_25.pth --eval bbox --out result.pkl
+
+3 mask3_598
+CUDA_VISIBLE_DEVICES=3 python3 tools/test.py a_configs/dota_model_area/distill/distill_atss_101_18_f0.5_dota_area.py work_dirs/dis_atss101_18_f0.5_dota_area_mask3/epoch_30.pth --eval bbox --out result.pkl
+
+4 mask4_597
+CUDA_VISIBLE_DEVICES=3 python3 tools/test.py a_configs/dota_model_area/distill/distill_atss_101_18_f0.5_dota_area.py work_dirs/dis_atss101_18_f0.5_dota_area_mask4/epoch_24.pth --eval bbox --out result.pkl
+
+5 mask4_A1_0.594
+CUDA_VISIBLE_DEVICES=3 python3 tools/test.py a_configs/dota_model_area/distill/distill_atss_101_18_f0.5_dota_area.py work_dirs/dis_atss101_18_f0.5_dota_area_mask4_A1/epoch_23.pth --eval bbox --out result.pkl
+
+6 mask4_A2_0.599
+CUDA_VISIBLE_DEVICES=3 python3 tools/test.py a_configs/dota_model_area/distill/distill_atss_101_18_f0.5_dota_area.py work_dirs/dis_atss101_18_f0.5_dota_area_mask4_A2/epoch_23.pth --eval bbox --out result.pkl
+
+7 mask4_A3_0.589
+CUDA_VISIBLE_DEVICES=3 python3 tools/test.py a_configs/dota_model_area/distill/distill_atss_101_18_f0.5_dota_area.py work_dirs/dis_atss101_18_f0.5_dota_area_mask4_A3/epoch_26.pth --eval bbox --out result.pkl
+
+
+bk的权重调整
+1 mask3_0.005
+CUDA_VISIBLE_DEVICES=1 python3 tools/test.py a_configs/dota_model_area/distill/distill_atss_101_18_f0.5_dota_area.py work_dirs/dis_atss101_18_f0.5_dota_area_mask3_0.005/epoch_30.pth --eval bbox --out result.pkl
+
+2 mask4_0.005
+CUDA_VISIBLE_DEVICES=1 python3 tools/test.py a_configs/dota_model_area/distill/distill_atss_101_18_f0.5_dota_area.py work_dirs/dis_atss101_18_f0.5_dota_area_mask4_0.005/epoch_22.pth --eval bbox --out result.pkl
+
+python3 tools/parse_result_test.py
+
+bk+cls
+1 mask1_0.605
+CUDA_VISIBLE_DEVICES=1 python3 tools/test.py a_configs/dota_model_area/distill/distill_atss_101_18_f0.5_dota_area.py work_dirs_test/dis_atss101_18_f0.5_dota_area_cls_bk_mask1/epoch_30.pth --eval bbox --out result.pkl
+
+2 mask2_0.599
+CUDA_VISIBLE_DEVICES=1 python3 tools/test.py a_configs/dota_model_area/distill/distill_atss_101_18_f0.5_dota_area.py work_dirs_test/dis_atss101_18_f0.5_dota_area_cls_bk_mask2/epoch_25.pth --eval bbox --out result.pkl
+
+3 mask3 0.61
+CUDA_VISIBLE_DEVICES=1 python3 tools/test.py a_configs/dota_model_area/distill/distill_atss_101_18_f0.5_dota_area.py work_dirs_test/dis_atss101_18_f0.5_dota_area_cls_bk_mask3/epoch_26.pth --eval bbox --out result.pkl
+
+4 mask4 0.609
+CUDA_VISIBLE_DEVICES=1 python3 tools/test.py a_configs/dota_model_area/distill/distill_atss_101_18_f0.5_dota_area.py work_dirs_test/dis_atss101_18_f0.5_dota_area_cls_bk_mask4/epoch_28.pth --eval bbox --out result.pkl
+
+5 mask4_A1
+CUDA_VISIBLE_DEVICES=1 python3 tools/test.py a_configs/dota_model_area/distill/distill_atss_101_18_f0.5_dota_area.py work_dirs_test/dis_atss101_18_f0.5_dota_area_cls_bk_mask4_A1/epoch_26.pth --eval bbox --out result.pkl
+
+6 mask4_A2
+CUDA_VISIBLE_DEVICES=1 python3 tools/test.py a_configs/dota_model_area/distill/distill_atss_101_18_f0.5_dota_area.py work_dirs_test/dis_atss101_18_f0.5_dota_area_cls_bk_mask4_A2/epoch_22.pth --eval bbox --out result.pkl
+
+bk+cls+reg
+
+python3 tools/parse_result_test.py
+
+1 B+C+R_s-0.1
+CUDA_VISIBLE_DEVICES=1 python3 tools/test.py a_configs/dota_model_area/distill/distill_atss_101_18_f0.5_dota_area.py work_dirs_test_bk+cls_reg/dis_area_reg_s_0.1_cls_bk_mask4/epoch_28.pth --eval bbox --out result.pkl
+
+2 B+C+R_m-0.1
+CUDA_VISIBLE_DEVICES=1 python3 tools/test.py a_configs/dota_model_area/distill/distill_atss_101_18_f0.5_dota_area.py work_dirs_test_bk+cls_reg/dis_area_reg_m_0.1_cls_bk_mask4/epoch_24.pth --eval bbox --out result.pkl
+
+3 B+C+R_o-0.1
+CUDA_VISIBLE_DEVICES=1 python3 tools/test.py a_configs/dota_model_area/distill/distill_atss_101_18_f0.5_dota_area.py work_dirs_test_bk+cls_reg/dis_area_reg_o_0.1_cls_bk_mask4/epoch_28.pth --eval bbox --out result.pkl
+
+4 B+C+R_s-giou-0.1
+CUDA_VISIBLE_DEVICES=1 python3 tools/test.py a_configs/dota_model_area/distill/distill_atss_101_18_f0.5_dota_area.py work_dirs_test_bk+cls_reg/dis_area_reg_s_0.1_giou_cls_bk_mask4/epoch_26.pth --eval bbox --out result.pkl
+
+5 B+C+R_m-giou-0.1
+CUDA_VISIBLE_DEVICES=1 python3 tools/test.py a_configs/dota_model_area/distill/distill_atss_101_18_f0.5_dota_area.py work_dirs_test_bk+cls_reg/dis_area_reg_m_0.1_giou_cls_bk_mask4/epoch_24.pth --eval bbox --out result.pkl
+
+6 B+C+R_o-giou-0.1
+CUDA_VISIBLE_DEVICES=1 python3 tools/test.py a_configs/dota_model_area/distill/distill_atss_101_18_f0.5_dota_area.py work_dirs_test_bk+cls_reg/dis_area_reg_o_0.1_giou_cls_bk_mask4/epoch_24.pth --eval bbox --out result.pkl
+
+7 B+C+R_s-giou-0.1c
+CUDA_VISIBLE_DEVICES=1 python3 tools/test.py a_configs/dota_model_area/distill/distill_atss_101_18_f0.5_dota_area.py work_dirs_test_bk+cls_reg/dis_area_reg_s_0.1c_giou_cls_bk_mask4/epoch_30.pth --eval bbox --out result.pkl
+
+8 B+C+R_m-giou-0.1c
+CUDA_VISIBLE_DEVICES=2 python3 tools/test.py a_configs/dota_model_area/distill/distill_atss_101_18_f0.5_dota_area.py work_dirs_test_bk+cls_reg/dis_area_reg_m_0.1c_giou_cls_bk_mask4/epoch_28.pth --eval bbox --out result.pkl
+
+9 B+C+R_o-giou-0.1c
+CUDA_VISIBLE_DEVICES=1 python3 tools/test.py a_configs/dota_model_area/distill/distill_atss_101_18_f0.5_dota_area.py work_dirs_test_bk+cls_reg/dis_area_reg_o_0.1c_giou_cls_bk_mask4/epoch_29.pth --eval bbox --out result.pkl
+
+
+bk+cls+reg 权重调整
+1 m4_m_1
+CUDA_VISIBLE_DEVICES=1 python3 tools/test.py a_configs/dota_model_area/distill/distill_atss_101_18_f0.5_dota_area.py work_dirs_test_bk+cls_reg/dis_area_reg_m_1_cls_bk_mask4/epoch_30.pth --eval bbox --out result.pkl
+
+2 m4_s_1
+CUDA_VISIBLE_DEVICES=1 python3 tools/test.py a_configs/dota_model_area/distill/distill_atss_101_18_f0.5_dota_area.py work_dirs_test_bk+cls_reg/dis_area_reg_s_1_cls_bk_mask4/epoch_30.pth --eval bbox --out result.pkl
+
+
+python3 tools/parse_result_test.py
+
+下面的是dota为了超越70的极限测试，全部都是B+C+R+mask4
+1 s_giou_0.1c 0.611 epoch_30
+CUDA_VISIBLE_DEVICES=0 python3 tools/test.py a_configs/dota_model_area/distill/distill_atss_101_18_f0.5_dota_area.py work_dirs_reg/dis_area_reg_s_0.1c_giou_cls_bk_mask4_new/epoch_30.pth --eval bbox --out result.pkl
+
+2 s_giou_0.1c 0.61 epoch_29
+CUDA_VISIBLE_DEVICES=0 python3 tools/test.py a_configs/dota_model_area/distill/distill_atss_101_18_f0.5_dota_area.py work_dirs_reg/dis_area_reg_s_0.1c_giou_cls_bk_mask4_new/epoch_29.pth --eval bbox --out result.pkl
+
+3 s_giou_0.1c 0.608 epoch_28
+CUDA_VISIBLE_DEVICES=0 python3 tools/test.py a_configs/dota_model_area/distill/distill_atss_101_18_f0.5_dota_area.py work_dirs_reg/dis_area_reg_s_0.1c_giou_cls_bk_mask4_new/epoch_28.pth --eval bbox --out result.pkl
+
+4 s_giou_0.1c 0.608 epoch_27
+CUDA_VISIBLE_DEVICES=0 python3 tools/test.py a_configs/dota_model_area/distill/distill_atss_101_18_f0.5_dota_area.py work_dirs_reg/dis_area_reg_s_0.1c_giou_cls_bk_mask4_new/epoch_27.pth --eval bbox --out result.pkl
+
+5 s_giou_0.1c 0.608 epoch_26
+CUDA_VISIBLE_DEVICES=0 python3 tools/test.py a_configs/dota_model_area/distill/distill_atss_101_18_f0.5_dota_area.py work_dirs_reg/dis_area_reg_s_0.1c_giou_cls_bk_mask4_new/epoch_26.pth --eval bbox --out result.pkl
+
+6 s_giou_0.1c 0.609 epoch_25
+CUDA_VISIBLE_DEVICES=0 python3 tools/test.py a_configs/dota_model_area/distill/distill_atss_101_18_f0.5_dota_area.py work_dirs_reg/dis_area_reg_s_0.1c_giou_cls_bk_mask4_new/epoch_25.pth --eval bbox --out result.pkl
+
+7 s_giou_0.1c 0.608 epoch_24
+CUDA_VISIBLE_DEVICES=0 python3 tools/test.py a_configs/dota_model_area/distill/distill_atss_101_18_f0.5_dota_area.py work_dirs_reg/dis_area_reg_s_0.1c_giou_cls_bk_mask4_new/epoch_24.pth --eval bbox --out result.pkl
+
+8 s_giou_0.1c 0.608 epoch_23
+CUDA_VISIBLE_DEVICES=0 python3 tools/test.py a_configs/dota_model_area/distill/distill_atss_101_18_f0.5_dota_area.py work_dirs_reg/dis_area_reg_s_0.1c_giou_cls_bk_mask4_new/epoch_23.pth --eval bbox --out result.pkl
+
+9 s_giou_0.1c 0.608 epoch_22
+CUDA_VISIBLE_DEVICES=0 python3 tools/test.py a_configs/dota_model_area/distill/distill_atss_101_18_f0.5_dota_area.py work_dirs_reg/dis_area_reg_s_0.1c_giou_cls_bk_mask4_new/epoch_22.pth --eval bbox --out result.pkl
+
+10 s_giou_0.1c 0.608 epoch_21
+CUDA_VISIBLE_DEVICES=0 python3 tools/test.py a_configs/dota_model_area/distill/distill_atss_101_18_f0.5_dota_area.py work_dirs_reg/dis_area_reg_s_0.1c_giou_cls_bk_mask4_new/epoch_21.pth --eval bbox --out result.pkl
+
+此处为了寻找之前可能错过的最好点
+python3 tools/parse_result_test.py
+
+s_giou
+1 27 0.609
+CUDA_VISIBLE_DEVICES=0 python3 tools/test.py a_configs/dota_model_area/distill/distill_atss_101_18_f0.5_dota_area.py work_dirs_tes_reg/dis_area_reg_s_0.1_giou_cls_bk_mask4/epoch_27.pth --eval bbox --out result.pkl
+
+2 28 0.607
+CUDA_VISIBLE_DEVICES=0 python3 tools/test.py a_configs/dota_model_area/distill/distill_atss_101_18_f0.5_dota_area.py work_dirs_tes_reg/dis_area_reg_s_0.1_giou_cls_bk_mask4/epoch_28.pth --eval bbox --out result.pkl
+
+3 29 0.607
+CUDA_VISIBLE_DEVICES=0 python3 tools/test.py a_configs/dota_model_area/distill/distill_atss_101_18_f0.5_dota_area.py work_dirs_tes_reg/dis_area_reg_s_0.1_giou_cls_bk_mask4/epoch_29.pth --eval bbox --out result.pkl
+
+4 30 0.608
+CUDA_VISIBLE_DEVICES=0 python3 tools/test.py a_configs/dota_model_area/distill/distill_atss_101_18_f0.5_dota_area.py work_dirs_tes_reg/dis_area_reg_s_0.1_giou_cls_bk_mask4/epoch_30.pth --eval bbox --out result.pkl
+
+python3 tools/parse_result_test.py
+
+m_giou
+1 21 0.614
+CUDA_VISIBLE_DEVICES=0 python3 tools/test.py a_configs/dota_model_area/distill/distill_atss_101_18_f0.5_dota_area.py work_dirs_tes_reg/dis_area_reg_m_0.1_giou_cls_bk_mask4/epoch_21.pth --eval bbox --out result.pkl
+
+2 22 0.616
+CUDA_VISIBLE_DEVICES=0 python3 tools/test.py a_configs/dota_model_area/distill/distill_atss_101_18_f0.5_dota_area.py work_dirs_tes_reg/dis_area_reg_m_0.1_giou_cls_bk_mask4/epoch_22.pth --eval bbox --out result.pkl
+
+3 23 0.619
+CUDA_VISIBLE_DEVICES=0 python3 tools/test.py a_configs/dota_model_area/distill/distill_atss_101_18_f0.5_dota_area.py work_dirs_tes_reg/dis_area_reg_m_0.1_giou_cls_bk_mask4/epoch_23.pth --eval bbox --out result.pkl
+
+4 24 0.619 已经测试
+CUDA_VISIBLE_DEVICES=0 python3 tools/test.py a_configs/dota_model_area/distill/distill_atss_101_18_f0.5_dota_area.py work_dirs_tes_reg/dis_area_reg_m_0.1_giou_cls_bk_mask4/epoch_24.pth --eval bbox --out result.pkl
+
+5 25 0.615
+CUDA_VISIBLE_DEVICES=0 python3 tools/test.py a_configs/dota_model_area/distill/distill_atss_101_18_f0.5_dota_area.py work_dirs_tes_reg/dis_area_reg_m_0.1_giou_cls_bk_mask4/epoch_25.pth --eval bbox --out result.pkl
+
+6 26 0.617
+CUDA_VISIBLE_DEVICES=0 python3 tools/test.py a_configs/dota_model_area/distill/distill_atss_101_18_f0.5_dota_area.py work_dirs_tes_reg/dis_area_reg_m_0.1_giou_cls_bk_mask4/epoch_26.pth --eval bbox --out result.pkl
+
+7 27 0.618
+CUDA_VISIBLE_DEVICES=3 python3 tools/test.py a_configs/dota_model_area/distill/distill_atss_101_18_f0.5_dota_area.py work_dirs_tes_reg/dis_area_reg_m_0.1_giou_cls_bk_mask4/epoch_27.pth --eval bbox --out result.pkl
+
+8 28 0.618
+CUDA_VISIBLE_DEVICES=3 python3 tools/test.py a_configs/dota_model_area/distill/distill_atss_101_18_f0.5_dota_area.py work_dirs_tes_reg/dis_area_reg_m_0.1_giou_cls_bk_mask4/epoch_28.pth --eval bbox --out result.pkl
+
+9 29 0.617
+CUDA_VISIBLE_DEVICES=3 python3 tools/test.py a_configs/dota_model_area/distill/distill_atss_101_18_f0.5_dota_area.py work_dirs_tes_reg/dis_area_reg_m_0.1_giou_cls_bk_mask4/epoch_29.pth --eval bbox --out result.pkl
+
+10 30 0.617
+CUDA_VISIBLE_DEVICES=3 python3 tools/test.py a_configs/dota_model_area/distill/distill_atss_101_18_f0.5_dota_area.py work_dirs_tes_reg/dis_area_reg_m_0.1_giou_cls_bk_mask4/epoch_30.pth --eval bbox --out result.pkl
+
+python3 tools/parse_result_test.py
+
+o_giou
+21 0.609
+python3 tools/test.py a_configs/dota_model_area/distill/distill_atss_101_18_f0.5_dota_area.py work_dirs_reg/dis_area_reg_o_0.1_giou_cls_bk_mask4/epoch_21.pth --eval bbox --out result.pkl
+
+22 0.608
+python3 tools/test.py a_configs/dota_model_area/distill/distill_atss_101_18_f0.5_dota_area.py work_dirs_reg/dis_area_reg_o_0.1_giou_cls_bk_mask4/epoch_22.pth --eval bbox --out result.pkl
+
+23 0.607
+python3 tools/test.py a_configs/dota_model_area/distill/distill_atss_101_18_f0.5_dota_area.py work_dirs_reg/dis_area_reg_o_0.1_giou_cls_bk_mask4/epoch_23.pth --eval bbox --out result.pkl
+
+24 0.609 已经测试
+python3 tools/test.py a_configs/dota_model_area/distill/distill_atss_101_18_f0.5_dota_area.py work_dirs_reg/dis_area_reg_o_0.1_giou_cls_bk_mask4/epoch_24.pth --eval bbox --out result.pkl
+
+25 0.608
+python3 tools/test.py a_configs/dota_model_area/distill/distill_atss_101_18_f0.5_dota_area.py work_dirs_reg/dis_area_reg_o_0.1_giou_cls_bk_mask4/epoch_25.pth --eval bbox --out result.pkl
+
+26 0.608
+python3 tools/test.py a_configs/dota_model_area/distill/distill_atss_101_18_f0.5_dota_area.py work_dirs_reg/dis_area_reg_o_0.1_giou_cls_bk_mask4/epoch_26.pth --eval bbox --out result.pkl
+
+27 0.608
+python3 tools/test.py a_configs/dota_model_area/distill/distill_atss_101_18_f0.5_dota_area.py work_dirs_reg/dis_area_reg_o_0.1_giou_cls_bk_mask4/epoch_27.pth --eval bbox --out result.pkl
+
+28 0.607
+python3 tools/test.py a_configs/dota_model_area/distill/distill_atss_101_18_f0.5_dota_area.py work_dirs_reg/dis_area_reg_o_0.1_giou_cls_bk_mask4/epoch_28.pth --eval bbox --out result.pkl
+
+29 0.608
+python3 tools/test.py a_configs/dota_model_area/distill/distill_atss_101_18_f0.5_dota_area.py work_dirs_reg/dis_area_reg_o_0.1_giou_cls_bk_mask4/epoch_29.pth --eval bbox --out result.pkl
+
+30 0.609
+python3 tools/test.py a_configs/dota_model_area/distill/distill_atss_101_18_f0.5_dota_area.py work_dirs_reg/dis_area_reg_o_0.1_giou_cls_bk_mask4/epoch_30.pth --eval bbox --out result.pkl
+
+
+s-giou-c
+21
+python3 tools/test.py a_configs/dota_model_area/distill/distill_atss_101_18_f0.5_dota_area.py work_dirs_reg/dis_area_reg_s_0.1c_giou_cls_bk_mask4/epoch_21.pth --eval bbox --out result.pkl
+
+22
+python3 tools/test.py a_configs/dota_model_area/distill/distill_atss_101_18_f0.5_dota_area.py work_dirs_reg/dis_area_reg_s_0.1c_giou_cls_bk_mask4/epoch_22.pth --eval bbox --out result.pkl
+
+23
+python3 tools/test.py a_configs/dota_model_area/distill/distill_atss_101_18_f0.5_dota_area.py work_dirs_reg/dis_area_reg_s_0.1c_giou_cls_bk_mask4/epoch_23.pth --eval bbox --out result.pkl
+
+24
+python3 tools/test.py a_configs/dota_model_area/distill/distill_atss_101_18_f0.5_dota_area.py work_dirs_reg/dis_area_reg_s_0.1c_giou_cls_bk_mask4/epoch_24.pth --eval bbox --out result.pkl
+
+25
+python3 tools/test.py a_configs/dota_model_area/distill/distill_atss_101_18_f0.5_dota_area.py work_dirs_reg/dis_area_reg_s_0.1c_giou_cls_bk_mask4/epoch_25.pth --eval bbox --out result.pkl
+
+26
+python3 tools/test.py a_configs/dota_model_area/distill/distill_atss_101_18_f0.5_dota_area.py work_dirs_reg/dis_area_reg_s_0.1c_giou_cls_bk_mask4/epoch_26.pth --eval bbox --out result.pkl
+
+27
+python3 tools/test.py a_configs/dota_model_area/distill/distill_atss_101_18_f0.5_dota_area.py work_dirs_reg/dis_area_reg_s_0.1c_giou_cls_bk_mask4/epoch_27.pth --eval bbox --out result.pkl
+
+28
+python3 tools/test.py a_configs/dota_model_area/distill/distill_atss_101_18_f0.5_dota_area.py work_dirs_reg/dis_area_reg_s_0.1c_giou_cls_bk_mask4/epoch_28.pth --eval bbox --out result.pkl
+
+29
+python3 tools/test.py a_configs/dota_model_area/distill/distill_atss_101_18_f0.5_dota_area.py work_dirs_reg/dis_area_reg_s_0.1c_giou_cls_bk_mask4/epoch_29.pth --eval bbox --out result.pkl
+
+30
+python3 tools/test.py a_configs/dota_model_area/distill/distill_atss_101_18_f0.5_dota_area.py work_dirs_reg/dis_area_reg_s_0.1c_giou_cls_bk_mask4/epoch_30.pth --eval bbox --out result.pkl
+
+m-giou-c
+21
+python3 tools/test.py a_configs/dota_model_area/distill/distill_atss_101_18_f0.5_dota_area.py work_dirs_reg/dis_area_reg_m_0.1c_giou_cls_bk_mask4/epoch_21.pth --eval bbox --out result.pkl
+
+23
+python3 tools/test.py a_configs/dota_model_area/distill/distill_atss_101_18_f0.5_dota_area.py work_dirs_reg/dis_area_reg_m_0.1c_giou_cls_bk_mask4/epoch_23.pth --eval bbox --out result.pkl
+
+24
+python3 tools/test.py a_configs/dota_model_area/distill/distill_atss_101_18_f0.5_dota_area.py work_dirs_reg/dis_area_reg_m_0.1c_giou_cls_bk_mask4/epoch_24.pth --eval bbox --out result.pkl
+
+25
+python3 tools/test.py a_configs/dota_model_area/distill/distill_atss_101_18_f0.5_dota_area.py work_dirs_reg/dis_area_reg_m_0.1c_giou_cls_bk_mask4/epoch_25.pth --eval bbox --out result.pkl
+
+26
+python3 tools/test.py a_configs/dota_model_area/distill/distill_atss_101_18_f0.5_dota_area.py work_dirs_reg/dis_area_reg_m_0.1c_giou_cls_bk_mask4/epoch_26.pth --eval bbox --out result.pkl
+
+27
+python3 tools/test.py a_configs/dota_model_area/distill/distill_atss_101_18_f0.5_dota_area.py work_dirs_reg/dis_area_reg_m_0.1c_giou_cls_bk_mask4/epoch_27.pth --eval bbox --out result.pkl
+
+28 已经测试
+python3 tools/test.py a_configs/dota_model_area/distill/distill_atss_101_18_f0.5_dota_area.py work_dirs_reg/dis_area_reg_m_0.1c_giou_cls_bk_mask4/epoch_28.pth --eval bbox --out result.pkl
+
+29
+python3 tools/test.py a_configs/dota_model_area/distill/distill_atss_101_18_f0.5_dota_area.py work_dirs_reg/dis_area_reg_m_0.1c_giou_cls_bk_mask4/epoch_29.pth --eval bbox --out result.pkl
+
+30
+python3 tools/test.py a_configs/dota_model_area/distill/distill_atss_101_18_f0.5_dota_area.py work_dirs_reg/dis_area_reg_m_0.1c_giou_cls_bk_mask4/epoch_30.pth --eval bbox --out result.pkl
+
+o-giou-c
+
+21
+python3 tools/test.py a_configs/dota_model_area/distill/distill_atss_101_18_f0.5_dota_area.py work_dirs_reg/dis_area_reg_o_0.1c_giou_cls_bk_mask4/epoch_21.pth --eval bbox --out result.pkl
+
+
+
+22
+python3 tools/test.py a_configs/dota_model_area/distill/distill_atss_101_18_f0.5_dota_area.py work_dirs_reg/dis_area_reg_o_0.1c_giou_cls_bk_mask4/epoch_22.pth --eval bbox --out result.pkl
+
+23
+python3 tools/test.py a_configs/dota_model_area/distill/distill_atss_101_18_f0.5_dota_area.py work_dirs_reg/dis_area_reg_o_0.1c_giou_cls_bk_mask4/epoch_23.pth --eval bbox --out result.pkl
+
+24
+python3 tools/test.py a_configs/dota_model_area/distill/distill_atss_101_18_f0.5_dota_area.py work_dirs_reg/dis_area_reg_o_0.1c_giou_cls_bk_mask4/epoch_24.pth --eval bbox --out result.pkl
+
+25
+python3 tools/test.py a_configs/dota_model_area/distill/distill_atss_101_18_f0.5_dota_area.py work_dirs_reg/dis_area_reg_o_0.1c_giou_cls_bk_mask4/epoch_25.pth --eval bbox --out result.pkl
+
+26
+python3 tools/test.py a_configs/dota_model_area/distill/distill_atss_101_18_f0.5_dota_area.py work_dirs_reg/dis_area_reg_o_0.1c_giou_cls_bk_mask4/epoch_26.pth --eval bbox --out result.pkl
+
+27
+python3 tools/test.py a_configs/dota_model_area/distill/distill_atss_101_18_f0.5_dota_area.py work_dirs_reg/dis_area_reg_o_0.1c_giou_cls_bk_mask4/epoch_27.pth --eval bbox --out result.pkl
+
+28
+python3 tools/test.py a_configs/dota_model_area/distill/distill_atss_101_18_f0.5_dota_area.py work_dirs_reg/dis_area_reg_o_0.1c_giou_cls_bk_mask4/epoch_28.pth --eval bbox --out result.pkl
+
+29 已经测试
+python3 tools/test.py a_configs/dota_model_area/distill/distill_atss_101_18_f0.5_dota_area.py work_dirs_reg/dis_area_reg_o_0.1c_giou_cls_bk_mask4/epoch_29.pth --eval bbox --out result.pkl
+
+30
+python3 tools/test.py a_configs/dota_model_area/distill/distill_atss_101_18_f0.5_dota_area.py work_dirs_reg/dis_area_reg_o_0.1c_giou_cls_bk_mask4/epoch_30.pth --eval bbox --out result.pkl
+
+测试新的模型
+python tools/test.py a_configs/dota_model_area/distill/distill_atss_101_18_f0.5_dota_area.py work_dirs_dota/dis_reg_s_0.1c_giou_cls_m6_bk_m4/epoch_1.pth --eval bbox
+
+python3 tools/test.py a_configs/dota_model_area/distill/distill_atss_101_18_f0.5_dota_area.py tuui/epoch_30.pth --eval bbox --out result.pkl
+
+测试最新的分类模型
+s_0.1c_giou_cls_bk_m4
+21
+python3 tools/test.py a_configs/dota_model_area/distill/distill_atss_101_18_f0.5_dota_area.py work_dirs_dota/dis_reg_s_0.1c_giou_cls_m6_bk_m4/epoch_21.pth --eval bbox --out result.pkl
+22
+python3 tools/test.py a_configs/dota_model_area/distill/distill_atss_101_18_f0.5_dota_area.py work_dirs_dota/dis_reg_s_0.1c_giou_cls_m6_bk_m4/epoch_22.pth --eval bbox --out result.pkl
+23
+python3 tools/test.py a_configs/dota_model_area/distill/distill_atss_101_18_f0.5_dota_area.py work_dirs_dota/dis_reg_s_0.1c_giou_cls_m6_bk_m4/epoch_23.pth --eval bbox --out result.pkl
+24
+python3 tools/test.py a_configs/dota_model_area/distill/distill_atss_101_18_f0.5_dota_area.py work_dirs_dota/dis_reg_s_0.1c_giou_cls_m6_bk_m4/epoch_24.pth --eval bbox --out result.pkl
+25
+python3 tools/test.py a_configs/dota_model_area/distill/distill_atss_101_18_f0.5_dota_area.py work_dirs_dota/dis_reg_s_0.1c_giou_cls_m6_bk_m4/epoch_25.pth --eval bbox --out result.pkl
+
+yyr s_0.1c_giou_cls_m6_bk_m4
+26
+python3 tools/test.py a_configs/dota_model_area/distill/distill_atss_101_18_f0.5_dota_area.py work_dirs_dota/dis_reg_s_0.1c_giou_cls_m6_bk_m4/epoch_26.pth --eval bbox --out result.pkl
+
+yyr s_0.1c_giou_cls_m4_bk_m4
+24
+python3 tools/test.py a_configs/dota_model_area/distill/distill_atss_101_18_f0.5_dota_area.py work_dirs_dota/dis_reg_s_0.1c_giou_cls_m4_bk_m4/epoch_24.pth --eval bbox --out result.pkl
+
+python3 tools/parse_result_test.py
+
+cls_m6_bk_m4_0_0
+24
+python3 tools/test.py a_configs/dota_model_area/distill/distill_atss_101_18_f0.5_dota_area.py work_dirs_dota/dis_reg_s_0.1c_giou_cls_m6_0_bk_m4_0/epoch_24.pth --eval bbox --out result.pkl
+
+cls_m4_bk_m4_trainval
+python3 tools/test.py a_configs/dota_model_area/distill/distill_atss_101_18_f0.5_dota_area.py work_dirs_dota/dis_reg_s_0.1c_giou_cls_m4_0_bk_m4_0_trainval/epoch_24.pth --eval bbox --out result.pkl
+
+模仿权重设置为0.02
+python3 tools/test.py a_configs/dota_model_area/distill/distill_atss_101_18_f0.5_dota_area.py work_dirs_dota/dis_fpn_mask4_0.02/epoch_23.pth --eval bbox --out result.pkl
+
+模仿权重
+python3 tools/test.py a_configs/dota_model_area/distill/distill_atss_101_18_f0.5_dota_area.py work_dirs_dota/dis_fpn_mask4_0.001/epoch_26.pth --eval bbox --out result.pkl
+
+python3 tools/test.py a_configs/dota_model_area/distill/distill_atss_101_18_f0.5_dota_area.py work_dirs_dota/dis_reg_s_0.1c_giou_cls_m4_0_bk_m4_0_w0.02/epoch_24.pth --eval bbox --out result.pkl
+
+yyr-回归权重0.5
+回归权重 29-0.615
+python3 tools/test.py a_configs/dota_model_area/distill/distill_atss_101_18_f0.5_dota_area.py work_dirs_dota/dis_reg_s_0.1c_giou_cls_m4_0_bk_m4_0_w0.5/epoch_29.pth --eval bbox --out result.pkl
+
+回归权重 24-0.614
+python3 tools/test.py a_configs/dota_model_area/distill/distill_atss_101_18_f0.5_dota_area.py work_dirs_dota/dis_reg_s_0.1c_giou_cls_m4_0_bk_m4_0_w0.5/epoch_24.pth --eval bbox --out result.pkl
+
+yds-回顾权重0.2
+回归权重 26-0.605
+python3 tools/test.py a_configs/dota_model_area/distill/distill_atss_101_18_f0.5_dota_area.py work_dirs_dota/dis_reg_s_0.1c_giou_cls_m4_0_bk_m4_0_w0.2/epoch_26.pth --eval bbox --out result.pkl
+
+yyr-回归权重0.05
+python3 tools/test.py a_configs/dota_model_area/distill/distill_atss_101_18_f0.5_dota_area.py work_dirs_dota/dis_reg_s_0.1c_giou_cls_m4_0_bk_m4_0_w0.05/epoch_27.pth --eval bbox --out result.pkl
+
+yds-fpn权重0.05
+python3 tools/test.py a_configs/dota_model_area/distill/distill_atss_101_18_f0.5_dota_area.py work_dirs_dota/dis_fpn_mask4_0.05/epoch_29.pth --eval bbox --out result.pkl
+
+
+
+python3 tools/test.py a_configs/dota_model_area/distill/distill_atss_101_18_f0.5_dota_area.py /home/airstudio/code/yyr/work_dirs/dis_dota_fitnet/epoch_26.pth --eval bbox --out result.pkl
+
+KD_DOTA 23
+python3 tools/test.py a_configs/dota_model_area/distill/distill_atss_101_18_f0.5_dota_area.py /home/airstudio/code/yyr/work_dirs/dis_dota_tar/epoch_24.pth --eval bbox --out result.pkl
+
+python3 tools/test.py /home/airstudio/work_dirs/work_dirs_S_dota/atss18_dota/atss18_dota.py /home/airstudio/work_dirs/work_dirs_S_dota/atss18_dota/epoch_26.pth --eval bbox --out result.pkl
+
+fcos50-dota
+python3 tools/test.py a_configs/dota/resnet/fcos_50_dota.py work_dirs/fcos_50_dota/epoch_25.pth --eval bbox --out result.pkl
+python3 tools/test.py a_configs/dota_model_area/student/atss18_dota_area.py work_dirs/atss18_dota_area/epoch_25.pth --eval bbox --out result.pkl
+python3 tools/test.py a_configs/dota/resnet/fcos_50_dota.py work_dirs/fcos_50_dota/epoch_30.pth --eval bbox --out result.pkl
+
+python3 tools/test.py a_configs/dota_model_area/distill/distill_atss_101_18_f0.5_dota_area.py work_dirs/dis_atss101_18_f0.5_dota_area_reg_giou_c/epoch_25.pth --eval bbox --out result.pkl
+
+python3 tools/test.py a_configs/dota_model_area/student/atss18_fpn0.5_dota_area.py work_dirs/atss18_fpn0.5_dota_area/epoch_29.pth --eval bbox
+python3 tools/test.py a_configs/dota_model_area/distill/distill_atss_101_18_f0.5_dota_area.py work_dirs/dis_cls_mask4_0.01/epoch_25.pth --eval bbox --out result.pkl
+python3 tools/test.py b_configs/dota/T_S_D_Shu/atssSh_f0.5_dota_area.py work_dirs/shufflenet_dota/epoch_21.pth --eval bbox --out result.pkl

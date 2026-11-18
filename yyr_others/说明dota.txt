@@ -1,0 +1,65 @@
+关于dota数据集的使用
+第一步训练
+CUDA_VISIBLE_DEVICES=0 python tools/train.py
+需要指定 --config
+work_dirs的设定  位于1_dataset_schedule_runtime.py
+
+CUDA_VISIBLE_DEVICES=0 python3 tools/test.py a_configs/dota_model_area/distill/distill_atss_101_18_f0.5_dota.py work_dirs/test2/epoch_28.pth --eval bbox --out result.pkl
+
+
+todo 下面为在验证集上执行的步骤
+第二步测试bbox, 同时生成了pkl文件
+CUDA_VISIBLE_DEVICES=0 python3 tools/test.py a_configs/dota_model_area/distill/distill_atss_101_18_f0.5_dota_area.py work_dirs/dis_atss101_18_f0.5_dota_area_cls_bk_mask3/epoch_27.pth --eval bbox --out result.pkl
+CUDA_VISIBLE_DEVICES=0 python3 tools/test.py a_configs/dota_model_area/distill/distill_atss_101_18_f0.5_dota.py work_dirs/test2/epoch_28.pth --eval bbox --out result.pkl
+需要指定 --configs --checkpoint --out --eval
+在执行之前一定要在config里面，把对应的test_cfg里面的测试集的图片
+
+第三步解析生成的pkl的文件，转换为txt，此步实现了大图拼接，
+python3 tools/parse_result.py
+需要指定的为上一步生成的pkl文件-
+76行-pkl文件的位置
+80行-验证集的json, 或者测试集的json
+77行-输出的位置，会输出两个文件夹，task2_results， task2_results_nms,
+在下一步的测试过程中采用task2_results_nms
+
+第3.5步为了后面的大图测试，需要为验证集和测试集的原图的label生成一个包含名字的txt文件
+python3 DOTA_devkit-master/name_birth.py
+需要修改labelTxt的位置
+
+第四步将生成的task2_results_nms的txt文件及进行测试
+python3 DOTA_devkit-master/dota_evaluation_task2.py
+需要指定的文件
+236行-detpath - task2_result_nms的地址
+237行-annopath - dota原始图片验证集的标签
+238行-imagesetfile - 验证集的txt
+
+todo 下面为在测试集上执行的步骤
+第二步测试bbox, 同时生成了pkl文件
+CUDA_VISIBLE_DEVICES=0 python3 tools/test.py a_configs/dota_new_model/teacher/atss101_dota.py work_dirs/atss101_dota/latest.pth --eval bbox --out result_test.pkl
+需要指定 --configs --checkpoint --out --eval
+在执行之前一定要在config里面，把对应的test_cfg里面的测试集的图片
+
+
+第三步解析生成的pkl的文件，转换为txt，此步实现了大图拼接，
+python3 tools/parse_result_test.py
+需要指定的为上一步生成的pkl文件-
+76行-pkl文件的位置
+80行-验证集的json, 或者测试集的json
+77行-输出的位置，会输出两个文件夹，task2_results， task2_results_nms,
+在下一步的测试过程中采用task2_results_nms
+
+
+todo 图片裁剪
+位于DOTA_devkit
+prepare_dota1
+
+todo 数量统计
+ls -l|grep "^-"|wc -l
+
+todo 关于dota_devkit工具使用，
+1、cd dota_devkit
+2、swig -c++ -pyhton polyiou.i
+3、python setup.py build_ext --inplace
+
+
+

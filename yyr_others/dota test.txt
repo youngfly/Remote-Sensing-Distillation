@@ -1,0 +1,48 @@
+dota test
+验证集上的操作
+python3 tools/test.py b_configs/dota/T_S_D_Res/D_atss_101_18_f0.5_dota.py work_dirs_dota/d_dota_geo_d6/epoch_22.pth --eval bbox --out result.pkl
+
+python3 tools/parse_result.py
+python3 DOTA_devkit-master/dota_evaluation_task2.py
+
+测试集上的操作
+python3 tools/test.py b_configs/dota/T_S_D_Res/D_atss_101_18_f0.5_dota.py work_dirs_dota/d_dota_bgm_fea_s3/epoch_24.pth --eval bbox --out result.pkl
+
+python3 tools/test.py b_configs/dota/T_S_D_Mob/D_atss_101_mob_f0.5_dota.py work_dirs_dota_mob_reg/d_mob_dota_fea_cls/epoch_24.pth --eval bbox --out result.pkl
+
+python3 tools/test.py b_configs/dota/baseline_resnet/gfl_r18_dota.py work_dirs_dota_comp/gfl_r18_dota/epoch_24.pth --eval bbox --out result.pkl
+
+
+python3 tools/parse_result_test.py
+
+可视化说明 baseline
+python tools/test.py b_configs/dota/T_S_D_Reg/D_atss_101_18_f0.5_dota.py \
+       /home/airstudio/work_dirs_distill_paper1_all/work_dirs_student/atss18_fpn0.5_dota/epoch_29.pth \
+       --show-dir vis_result/s_dota_results
+
+可视化 D
+python tools/test.py b_configs/dota/T_S_D_Res/D_atss_101_18_f0.5_dota.py \
+       /home/airstudio/code/yyr/work_dirs_dota/d_dota_fea_cls_str/epoch_23.pth \
+       --show-dir vis_result/S3_dota_results
+
+KD
+CUDA_VISIBLE_DEVICES=1 python tools/test.py a_configs/dota_model_area/distill/distill_atss_101_18_f0.5_dota_area.py \
+       /home/airstudio/work_dirs_distill_paper1_all/dis_sota_compare/dis_dota_kd/epoch_23.pth \
+       --show-dir vis_result/kd_dota_results
+
+FitNet
+CUDA_VISIBLE_DEVICES=1 python tools/test.py a_configs/dota_model_area/distill/distill_atss_101_18_f0.5_dota_area.py \
+       /home/airstudio/work_dirs_distill_paper1_all/dis_sota_compare/dis_dota_fitnet/epoch_21.pth \
+       --show-dir vis_result/fitnet_dota_results
+
+TAR
+CUDA_VISIBLE_DEVICES=1 python tools/test.py a_configs/dota_model_area/distill/distill_atss_101_18_f0.5_dota_area.py \
+       /home/airstudio/work_dirs_distill_paper1_all/dis_sota_compare/dis_dota_tar/epoch_19.pth \
+       --show-dir vis_result/tar_dota_results
+
+FGFI
+CUDA_VISIBLE_DEVICES=1 python tools/test.py a_configs/dota_model_area/distill/distill_atss_101_18_f0.5_dota_area.py \
+       /home/airstudio/work_dirs_distill_paper1_all/work_dirs_dota/work_dirs_bk/dis_atss101_18_f0.5_dota_area_mask2/epoch_25.pth  \
+       --show-dir vis_result/fgfi_dota_results
+
+       MobileNetV2

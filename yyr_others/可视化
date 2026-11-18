@@ -1,0 +1,57 @@
+1 可视化教师结果，同时把结果储存起来
+
+   python tools/test.py a_configs/dota_model_area/teacher/atss101_dota_area.py \
+       work_dirs/atss101_dota_area1/epoch_27.pth \
+       --show-dir vis_result/atss101_dota_area1_results
+
+2 可视化蒸馏模型的结果，同时把模型的存储起来
+
+   python tools/test.py a_configs/dota_model_area/distill/distill_atss_101_18_f0.5_dota_area.py \
+       work_dirs_dota/dis_reg_s_0.1c_giou_cls_m6_bk_m4/epoch_21.pth \
+       --show-dir vis_result/dis_reg_s_0.1c_giou_cls_m6_bk_m4_results
+
+mmcv 安装的地方
+/opt/conda/lib/python3.6/site-packages/pycocotools/
+
+dota 数据集的类别编号
+[{"id": 1, "name": "plane", "supercategory": "plane"},
+{"id": 2, "name": "baseball-diamond", "supercategory": "baseball-diamond"},
+{"id": 3, "name": "bridge", "supercategory": "bridge"},
+{"id": 4, "name": "ground-track-field", "supercategory": "ground-track-field"},
+{"id": 5, "name": "small-vehicle", "supercategory": "small-vehicle"},
+{"id": 6, "name": "large-vehicle", "supercategory": "large-vehicle"},
+{"id": 7, "name": "ship", "supercategory": "ship"},
+{"id": 8, "name": "tennis-court", "supercategory": "tennis-court"},
+{"id": 9, "name": "basketball-court", "supercategory": "basketball-court"},
+{"id": 10, "name": "storage-tank", "supercategory": "storage-tank"},
+{"id": 11, "name": "soccer-ball-field", "supercategory": "soccer-ball-field"},
+{"id": 12, "name": "roundabout", "supercategory": "roundabout"},
+{"id": 13, "name": "harbor", "supercategory": "harbor"},
+{"id": 14, "name": "swimming-pool", "supercategory": "swimming-pool"},
+{"id": 15, "name": "helicopter", "supercategory": "helicopter"}],
+
+可视化三个数据集
+1、可视化DOTA
+   python tools/test.py a_configs/dota_model_area/distill/distill_atss_101_18_f0.5_dota_area \
+       /home/airstudio/code/yyr/work_dirs/ \
+       --show-dir vis_result/dota_results
+2、可视化NWPU
+   python tools/test.py a_configs/nwpu/distil/distill_atss_50_18_f0.25_nwpu.py \
+       /home/airstudio/code/yyr/work_dirs/dis_50_18f0.25_bk+cls+reg_s_mask4/epoch_40.pth \
+       --show-dir vis_result/nwpu_results
+3、可视化DIOR
+   python tools/test.py a_configs/dior/distill/distill_atss_101_18_f0.5_dior.py \
+       /home/airstudio/code/yyr/work_dirs_dior/dis_atss101_18_f0.5_dior_mask4/epoch_23.pth \
+       --show-dir vis_result/dior_results
+
+baseline student model
+
+4、可视化DOTA baseline
+   python tools/test.py a_configs/dota_model_area/student/atss18_fpn0.5_dota_area.py \
+       /home/airstudio/code/yyr/work_dirs/atss18_fpn0.5_dota_area/epoch_29.pth \
+       --show-dir vis_result/dota_results_stu
+5、可视化nwpu baseline
+   python tools/test.py a_configs/nwpu/distil/distill_atss_50_18_f0.25_nwpu.py \
+       /home/airstudio/code/yyr/work_dirs/atss_r18_fpn0.25_nwpu/epoch_33.pth \
+       --show-dir vis_result/nwpu_results_stu
+6、可视化dior baseline

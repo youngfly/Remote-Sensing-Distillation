@@ -1,0 +1,33 @@
+关于绘制损失曲线 dota
+# 绘制普通的损失曲线
+python tools/analyze_logs.py plot_curve /home/airstudio/code/yyr/work_dirs_dota/dis_reg_s_0.1c_giou_cls_m4_bk_m4/20210308_110424.log.json --keys loss_cls loss_bbox loss_centerness --legend loss_cls loss_reg loss_centerness --out dota_loss_cls_reg_centerness.pdf
+
+# 绘制蒸馏损失曲线
+python tools/analyze_logs.py plot_curve /home/airstudio/code/yyr/work_dirs_dota/dis_reg_s_0.1c_giou_cls_m4_bk_m4/20210308_110424.log.json --keys loss_sup_fpn loss_sup_cls loss_sup_reg --legend loss_sup_fpn loss_sup_cls loss_sup_reg --out dota_loss_sup.pdf
+
+#与baseline 进行对比loss
+python tools/analyze_logs.py plot_curve /home/airstudio/code/yyr/work_dirs_dota/dis_reg_s_0.1c_giou_cls_m4_bk_m4/20210308_110424.log.json /home/airstudio/code/yyr/work_dirs/atss18_fpn0.5_dota_area/20201227_020908.log.json --keys loss --legend loss_with_distillation loss --out dota_loss_compare.pdf
+
+#与baseline 对比mAP
+python tools/analyze_logs.py plot_curve /home/airstudio/code/yyr/work_dirs_dota/dis_reg_s_0.1c_giou_cls_m4_bk_m4/20210308_110424.log.json /home/airstudio/code/yyr/work_dirs/atss18_fpn0.5_dota_area/20201227_020908.log.json --keys bbox_mAP_50 --legend loss_with_distillation loss --out dota_mAP50_compare.pdf
+
+
+绘制曲线nwpu
+python tools/analyze_logs.py plot_curve /home/airstudio/work_dirs_distill/work_dirs_nwpu/dis_50_18f0.25_bk+cls+reg_s_mask4/20210126_103034.log.json --keys loss_cls loss_bbox loss_centerness --legend loss_cls loss_reg loss_centerness --out nwpu_loss_cls_reg_centerness.pdf
+
+# 绘制蒸馏损失曲线
+python tools/analyze_logs.py plot_curve /home/airstudio/work_dirs_distill/work_dirs_nwpu/dis_50_18f0.25_bk+cls+reg_s_mask4/20210126_103034.log.json --keys loss_sup_fpn loss_sup_cls loss_sup_reg --legend loss_sup_fpn loss_sup_cls loss_sup_reg --out nwpu_loss_sup.pdf
+
+#与baseline 进行对比loss
+python tools/analyze_logs.py plot_curve /home/airstudio/work_dirs_distill/work_dirs_nwpu/dis_50_18f0.25_bk+cls+reg_s_mask4/20210126_103034.log.json /home/airstudio/work_dirs_distill/work_dirs_nwpu/atss_r18_fpn0.25_nwpu/20210123_203042.log.json --keys loss --legend loss_with_distillation loss --out nwpu_loss_compare.pdf
+
+#与baseline 对比mAP
+python tools/analyze_logs.py plot_curve /home/airstudio/work_dirs_distill/work_dirs_nwpu/dis_50_18f0.25_bk+cls+reg_s_mask4/20210126_103034.log.json /home/airstudio/work_dirs_distill/work_dirs_nwpu/atss_r18_fpn0.25_nwpu/20210123_203042.log.json --keys bbox_mAP_50 --legend loss_with_distillation loss --out nwpu_mAP50_compare.pdf
+
+#绘制 曲线dior
+python tools/analyze_logs.py plot_curve /home/airstudio/code/yyr/work_dirs_dior/dis_atss101_18_f0.5_dior_mask4/test.json --keys loss_cls loss_bbox loss_centerness --legend loss_cls loss_reg loss_centerness --out dior_loss_cls_reg_centerness.pdf
+
+# 绘制蒸馏损失曲线
+python tools/analyze_logs.py plot_curve /home/airstudio/code/yyr/work_dirs_dior/dis_atss101_18_f0.5_dior_mask4/test.json --keys loss_sup_fpn  --legend loss_sup_fpn  --out dior_loss_sup.pdf
+
+

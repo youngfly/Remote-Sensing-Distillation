@@ -1,0 +1,58 @@
+todo 1、配置文件说明
+a_config
+0) 0_configs: todo 各种检测器在遥感数据集
+
+1) paper1_ARSD:  todo ARSD  paper1
+
+2）paper2_S3MKM: todo S2MKM paper2
+
+3）paper3_DIL:   todo DIL   paper3
+
+todo 2、自己添加新的模块主要位于mmdet里面
+1) datasets
+  (1) dota.py 直接继承于coco数据集，修改为自己的类别
+  (2) dior.py 直接继承于xml数据集， 添加为自己的类别，年份需要修改为2020.否则测试的时候，出来的为原本voc的类别，
+              自己重新复写evaluate 和 get_ann_info函数，原本的可能无法直接使用。
+  (3) nwpu.py 直接继承于coco数据集， 添加自己的类别， 写了一个新的evaluate函数，用来调用自己在 Pycocotools里面的重新写的为coco里面的每一个
+              类别各自的mAP.详情请看 /mmdet/yyr_creation/pycocotools_yyr/
+              关键在于这句 from pycocotools.cocoeval1 import COCOeval
+  需要在mmdet/datasets/_init_.py 添加自己的新注册的数据集
+2) models
+  (1) backbones
+      resnet_half.py 将resnet的通道数砍半
+      resnet_quarter.py 将resnet的通道数减少为1/4
+  需要在mmdet/models/backbones/_init_.py 添加自己新注册的backbone
+  (2) dense_heads
+      todo paper1
+      atss_head_new
+      todo paper2
+      atss_head2
+      todo paper3
+      atss_head_DIL
+
+  需要在mmdet/models/atss_heads/_init_.py 添加自己新注册的heads
+  (3) detectors
+      todo paper1
+      distill_retina.py  lyf写的最基本的蒸馏代码。
+      distill_atss.py    自己写的用来的蒸馏的检测器
+      todo paper2
+      dis_atss
+      dis_paa
+      todo paper3
+      DIL_atss
+
+  需要在mmdet/models/detectors/_init_.py 添加自己新注册的detectors
+  (4) losses
+      iou_loss.py 自己添加了一个新的niou_loss 修复了权重返回为0的问题。
+3) yyr_creation
+  (1) pycocotools_yyr 添加了可以使coco数据集显示每一个类别的mAP功能。具体使用方式看内部
+  (2) visualization 修改了原来的单颜色的画图问题，具体使用方式看内部
+
+todo 3、其他文档说明
+1）说明_dota: 里面介绍了dota数据集的使用方式，包含dota数据集的训练和测试,以及图片裁剪
+2）可视化、参数量、曲线绘制、巡测：里面讲述其他工具的使用方式。
+
+todo 4、关于regNet的使用
+网上下载的模型的需要提前转换一下
+代码位置 tools/model_converters/regnet2mmdet.py
+使用方法 python -u tools/model_converters/regnet2mmdet.py ${PRETRAIN_PATH} ${STORE_PATH}

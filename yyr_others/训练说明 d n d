@@ -1,0 +1,57 @@
+DOTA
+a_configs/dota_model_area/distill/distill_atss_101_18_f0.5_dota_area.py
+DIOR
+a_configs/dior/distill/distill_atss_101_18_f0.5_dior.py
+NWPU
+a_configs/nwpu/distil/distill_atss_50_18_f0.25_nwpu.py
+
+
+1 DOTA的训练说明
+
+0) debug模型的位置
+a_configs/test_model/distill_atss_101_18_f0.5_dota_area.py
+a_configs/test_model/distill_atss_101_18_dota_area.py
+
+
+1) 训练模型的位置 18_0.5_area
+a_configs/dota_model_area/distill/distill_atss_101_18_f0.5_dota_area.py
+使用训练文件 1_datset
+
+2) 训练模型的位置 18_0.5
+a_configs/dota_model_area/distill/distill_atss_101_18_f0.5_dota.py
+使用训练文件 2_dataset
+
+3) 训练模型的位置 18
+a_configs/dota_model_area/distill/distill_atss_101_18_dota.py
+使用训练文件 3_dataset
+
+4) 学生模型的单独训练
+1 3倍学生网络训练
+a_configs/dota_model_area/student/atss18_fpn0.5_dota_area.py
+
+关于三倍的面积加权的网络，需要在atss_head_new  get_target_single  切换area_weight1 ,原本的为area_weight
+
+5) 0.5bk网络训练
+a_configs/dota_model_area/student/atss18bk0.5_dota_area.py
+
+2 NWPU的训练说明
+
+学生模型的位置
+a_configs/nwpu/resnet_half/atss_r18_fpn0.5_nwpu.py
+
+蒸馏模型训练的位置
+a_configs/nwpu/distil/distill_atss_50_18_f0.25_nwpu.py
+
+3 DIOR的训练说明
+
+教师的模型
+a_configs/dior/teacher/atss101_dior.py
+
+学生模型
+a_configs/dior/student/atss18_fpn0.5_dior.py
+a_configs/dior/student/atss50_dior.py
+
+蒸馏模型
+a_configs/dior/distill/distill_atss_101_18_f0.5_dior.py
+
+CUDA_VISIBLE_DEVICES=1 python3 tools/train.py

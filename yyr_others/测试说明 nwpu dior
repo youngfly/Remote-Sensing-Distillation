@@ -1,0 +1,53 @@
+1 NWPU
+nwpu 的每个类别对应的 id
+{"supercategory": "airplane", "id": 1, "name": "airplane"},
+{"supercategory": "ship", "id": 2, "name": "ship"},
+{"supercategory": "storage tank", "id": 3, "name": "storage tank"},
+{"supercategory": "baseball diamond", "id": 4, "name": "baseball diamond"},
+{"supercategory": "tennis court", "id": 5, "name": "tennis court"},
+{"supercategory": "basketball court", "id": 6, "name": "basketball court"},
+{"supercategory": "ground track field", "id": 7, "name": "ground track field"},
+{"supercategory": "harbor", "id": 8, "name": "harbor"},
+{"supercategory": "bridge", "id": 9, "name": "bridge"},
+{"supercategory": "vehicle", "id": 10, "name": "vehicle"}]
+
+测试的基本的网络结构
+1 atss 50
+python3 tools/test.py a_configs/nwpu/resnet/atss_r50_fpn_1x_nwpu.py work_dirs_test_nwpu/atss_r50_fpn_1x_nwpu/epoch_39.pth --eval bbox
+
+2 atss 18
+python3 tools/test.py a_configs/nwpu/resnet/atss_r18_fpn_1x_nwpu.py work_dirs_test_nwpu/atss_r18_fpn_1x_nwpu/epoch_36.pth --eval bbox
+
+3 atss 18-f0.5
+python3 tools/test.py a_configs/nwpu/resnet_half/atss_r18_fpn0.5_nwpu.py work_dirs_test_nwpu/atss_r18_fpn0.5_nwpu/epoch_31.pth --eval bbox
+
+4 atss 18-f0.25
+python3 tools/test.py a_configs/nwpu/resnet_half/atss_r18_fpn0.25_nwpu.py work_dirs_test_nwpu/atss_r18_fpn0.25_nwpu/epoch_31.pth --eval bbox
+
+测试bk蒸馏
+python3 tools/test.py a_configs/nwpu/distil/distill_atss_50_18_f0.25_nwpu.py work_dirs_nwpu/dis_50_18f0.25_bk_mask4/epoch_32.pth --eval bbox
+
+测试之前的强力结果
+python3 tools/test.py a_configs/nwpu/distil/distill_atss_50_18_f0.25_nwpu.py work_dirs_nwpu/912/epoch_40.pth --eval bbox
+
+2 DIOR
+测试老师
+CUDA_VISIBLE_DEVICES=3  python3 tools/test.py a_configs/dior/teacher/atss101_dior.py work_dirs/atss101_dior/epoch_1.pth --eval mAP
+
+测试学生
+CUDA_VISIBLE_DEVICES=1  python3 tools/test.py a_configs/dior/student/atss18_fpn0.5_dior.py work_dirs/atss18_fpn0.5_dior/epoch_3.pth --eval mAP
+
+最新测试nwpu的 retina的37epoch
+python3 tools/test.py a_configs/nwpu/resnet/retinanet_r50_fpn_1x_nwpu.py work_dirs/retinanet_r50_fpn_nwpu/epoch_37.pth --eval bbox
+
+python3 tools/test.py b_configs/dior/T_S_D_Res/D_atss_101_18_f0.5_dior.py work_dirs_paper2/epoch_23.pth --eval mAP
+
+python3 tools/train.py a_configs/dior/teacher/atss101_dior.py work_dirs_paper2/epoch_23.pth --eval mAP
+
+python3 tools/test.py c_configs/nwpu/atss_r50_fpn_1x_nwpu.py work_dirs/atss_r50_fpn_1x_nwpu/epoch_39.pth --eval bbox
+
+
+
+
+
+
