@@ -99,7 +99,7 @@ python -u tools/regnet2mmdet.py ${PRETRAIN_PATH} ${STORE_PATH}
 
 三数据集统一超参：DIOR 800×800 / bs8 / 24ep / lr0.005；DOTA 1024×1024 / bs8 / 24–30ep / lr0.005；NWPU 1000×600 / bs4 / 40ep / lr0.001。
 
-## 训练与测试（基本说明.txt 融合版）
+## 训练与测试
 
 所有配置中的 `data_root`、`pretrained`、`tea_pretrained` 原为服务器路径（`/home/airstudio/...`、`/workspace/...`），本机运行前必须改为自己路径；蒸馏实验需先训好教师。
 
@@ -135,7 +135,7 @@ python tools/test.py <config.py> <checkpoint.pth> --eval bbox --out result.pkl
 
 注意：测试前确认 config 的 `test_cfg`/data.test 指向正确的验证集或测试集。
 
-## DOTA 大图评测完整流程（说明dota.txt 融合版）
+## DOTA 大图评测完整流程
 
 两个 devkit 目录分工不同，缺一不可：`DOTA_devkit/` 负责①裁剪和③拼接（import 已改造为包形式，被 tools 硬依赖）；`DOTA_devkit-master/` 负责④评测（评测脚本仅存于此）。
 
@@ -173,7 +173,7 @@ python DOTA_devkit-master/dota_evaluation_task2.py
 
 在测试集上评测时，将上述验证集相关输入替换为测试集对应文件（历史做法：把 config 测试集内容替换为验证集跑一遍再换回，注意改回）。
 
-## 分析工具（基本说明.txt 融合版）
+## 分析工具
 
 参数量 / FLOPs（输入尺寸在脚本内设置）：
 
